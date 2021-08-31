@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="box" id="heading">
+    <h1><%= ListItem %></h1>
+  </div>
+  <div class="box">
+    <% item_array.forEach(function(item_array){ %>
+      <form class="" action="/delete" method="post">
+        <div class="item">
+          <input type="hidden" name="list_name_get" value="<%= ListItem %>">
+          <input type="checkbox" name="delete_button" value="<%= item_array._id %>" onchange="this.form.submit()">
+          <p><%= item_array.name  %></p>
+        </div>
+      </form>
+    <% });
+    %>
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" value="" placeholder="New Item">
+      <button type="submit" name="list_button" value="<%= ListItem %>">+</button>
+    </form>
+  </div>
+
+
+</body>
+
+</html>
